@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>購物車</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="../assets/css/shoptext.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <style>
+    body {
+      background-image: url(../assets/photo/21.jpg);
+      background-size: cover;
+      font-family: 微軟正黑體;
+    }
+  </style>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+  <!-- Back to top button -->
+  <a id="button1"></a>
+  <header>
+    <div class="animate six" style="font-size:50px;">
+      <span>購</span><span>物</span><span>車</span><span>清</span><span>單</span>
+    </div>
+  </header>
+  <table class="container">
+    <tr class="item_header">
+      <td class="name">商品</td>
+      <td class="price">單價</td>
+      <td class="count">數量</td>
+      <td class="amount">總計</td>
+      <td class="operate">操作</td>
+    </tr>
+    <tr class="item_body">
+      <td class="name">
+        <img src="../assets/photo/notebook/note1.jpg" alt="">
+        <span id="name" style="vertical-align: middle;">個性筆記本</span>
+      </td>
+      <td class="price" id="price">NT$99</td>
+      <td class="count">
+        <button onclick="Less()">-</button>
+        <span class="itemcount" id="itemcount">1</span>
+        <button onclick="Add()">+</button>
+      </td>
+      <td class="amount" id="amount">NT$99</td>
+      <td class="operate">
+        <button type="button" class="btn btn-default btn-circle" id=" delete_btn" onclick="Delete()"><i
+            class="fa fa-times"></i>
+        </button>
+
+      </td>
+    </tr>
+    <tr class="item_bottom">
+      <td colspan="3" style="text-align: right; font-size: 20px; padding: 10px; border-bottom:none ;">小計</td>
+      <td class="amount" id="total" style="border-bottom: none;">NT$99</td>
+      <td style="border: none;"></td>
+    </tr>
+
+  </table>
+  <div class="dv1">
+    <span><button class="bt1"><a href="product.html"
+          style=" text-decoration: none; border: none; color: white;">繼續購物</a></button></span>
+    <span> <button class="bt1" onclick="SaveDatatoLocal()"><a href="paylist.html"
+          style=" text-decoration: none; border: none; color: white;">直接購買</a></button></span>
+  </div>
+
+
+
+</body>
+<script src="../assets/js/textpay.js"></script>
+
+</html>

@@ -1,0 +1,78 @@
+.mySlides{
+    width: 1200px;
+    height: 500px;
+    position: relative;
+}
+.mySlides>a{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 200px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+/*當圖片數量增加，影片長度需更改，變為3s*圖片數量*/
+ -webkit-animation: silder 18s linear infinite;
+ animation: silder 18s linear infinite;
+}
+.mySlides>a>img{
+    max-width: 100%;
+}
+/*動畫關鍵影格*/
+@-webkit-keyframes silder {
+    3% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    27% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    30% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+@keyframes silder {
+    3% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    27% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    30% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+/*每個圖片各延遲5秒*/
+.mySlides>a:nth-child(6) {
+    -webkit-animation-delay: 15s;
+            animation-delay: 15s;    
+}
+.mySlides>a:nth-child(5) {
+    -webkit-animation-delay: 12s;
+            animation-delay: 12s;    
+}
+.mySlides>a:nth-child(4) {
+    -webkit-animation-delay: 9s;
+            animation-delay: 9s;    
+}
+.mySlides>a:nth-child(3) {
+    -webkit-animation-delay: 6s;
+            animation-delay: 6s;               
+}
+.mySlides>a:nth-child(2) {
+    -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+}
+.mySlides>a:nth-child(1) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;    
+}
+/*滑入時停止播放*/
+.mySlides:hover>a{
+-webkit-animation-play-state: paused;
+        animation-play-state: paused;
+}

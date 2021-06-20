@@ -1,0 +1,324 @@
+* {
+  font-family: cursive;
+}
+
+/*dv1 css*/
+.dv1 {
+  width: 80%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  background-size: cover;
+  opacity: 0.7;
+}
+
+.comment-img1 {
+  float: left;
+  height: 100px;
+  width: 100px;
+  padding: 50px;
+  border-radius: 50%;
+  border: 1px lightgrey solid;
+}
+
+.comment-name {
+  padding-top: 50px;
+  float: left;
+  font-size: 30px;
+  position: relative;
+  padding-left: 20px;
+}
+
+/*dv2 css */
+.dv2 {
+  width: 80%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  height: auto;
+  overflow: hidden;
+  nt align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--duration);
+  box-sizing: border-box;
+  --bgColorMenu: gray;
+  --duration: .7s;
+}
+
+.dv2 *,
+.dv2 *::before,
+.dv2 *::after {
+  box-sizing: inherit;
+}
+
+.menu {
+  display: flex;
+  /* Works well with 100% width  */
+  width: 100%;
+  margin-top: 50px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bgColorMenu);
+}
+
+.menu__item {
+  all: unset;
+  flex-grow: 1;
+  z-index: 100;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  align-items: center;
+  will-change: transform;
+  justify-content: center;
+  padding: 0.55em 0 0.85em;
+  transition: transform var(--timeOut, var(--duration));
+}
+
+.menu__item::before {
+  content: "";
+  z-index: -1;
+  width: 4.2em;
+  height: 4.2em;
+  border-radius: 50%;
+  position: absolute;
+  transform: scale(0);
+  transition: background-color var(--duration), transform var(--duration);
+}
+
+.menu__item.active {
+  transform: translate3d(0, -.8em, 0);
+}
+
+.menu__item.active::before {
+  transform: scale(1);
+  background-color: var(--bgColorItem);
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  stroke: white;
+  fill: transparent;
+  stroke-width: 1pt;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 400;
+}
+
+.menu__item.active .icon {
+  animation: strok 1.5s reverse;
+}
+
+@keyframes strok {
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
+
+.menu__border {
+  left: 0;
+  bottom: 99%;
+  width: 10.9em;
+  height: 2.4em;
+  position: absolute;
+  clip-path: url(#menu);
+  will-change: transform;
+  background-color: var(--bgColorMenu);
+  transition: transform var(--timeOut, var(--duration));
+}
+
+.svg-container {
+  width: 0;
+  height: 0;
+}
+
+
+@media screen and (max-width: 50em) {
+  .menu {
+    font-size: .8em;
+  }
+}
+
+/*content CSS */
+
+.content {
+  width: 80%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+
+.content h2 {
+  text-align: center;
+  font-size: 45px;
+}
+
+/*orderlis CSS */
+table {
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 3px solid;
+  font-size: 20px;
+}
+
+table td.t1 {
+  width: 100%;
+  font-size: 25px;
+  color: white;
+  text-align: left;
+  padding-left: 30px;
+  background-color: navy;
+  height: 60px;
+}
+
+table td.t2 {
+  width: 100%;
+  font-size: 25px;
+  color: white;
+  text-align: left;
+  padding-left: 30px;
+  background-color: rgb(223, 16, 119);
+  height: 60px;
+
+}
+
+.name span {
+  line-height: 80px;
+  padding-left: 10px;
+}
+
+.name img {
+  padding-left: 10px;
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.name {
+  width: 200px;
+  vertical-align: middle;
+  height: 80px;
+  text-align: center;
+}
+
+.price {
+  width: 100px;
+  height: 80px;
+  text-align: center;
+}
+
+.date {
+  width: 250px;
+  height: 80px;
+  padding-left: 25px;
+}
+
+.s1 {
+  width: 200px;
+  height: 80px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.count {
+  width: 80px;
+  height: 90px;
+  text-align: center;
+}
+
+.s2 {
+  width: 500px;
+  height: 80px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.operate {
+  width: 160px;
+  text-align: center;
+}
+
+.rebn {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
+  border: solid 2px white;
+  border-radius: 25px;
+  background: none;
+  padding-right: 15px;
+}
+
+
+.rebn:hover {
+  color: red;
+  background-color: white;
+}
+
+/*back to top button*/
+#button1 {
+  display: inline-block;
+  background-color: none;
+  border: grey 2px solid;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#button1::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: rgba(255, 255, 255, 0.911);
+}
+
+#button1:hover {
+  cursor: pointer;
+  background-color: rgb(150, 144, 144);
+  opacity: 0.8;
+}
+
+#button1:active {
+  background-color: rgb(185, 178, 178);
+}
+
+#button1.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*footer */
+.dv3 {
+  margin-top: 100px;
+  width: 100%;
+  line-height: 50px;
+  padding-top: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}

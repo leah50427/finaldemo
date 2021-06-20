@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>結帳</title>
+  <style type="text/css">
+    @import "../assets/css/paytext.css";
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      if (localStorage.getItem(document.getElementById("name").innerText)) {
+        var number = localStorage.getItem(document.getElementById("name").innerText);
+        document.getElementById("itemcount").innerText = number;
+        ProductNumberChange();
+      }
+    }
+  </script>
+</head>
+
+<body style="background-image: url(../assets/photo/10.jpg);">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+  <!-- Back to top button -->
+  <a id="button1"></a>
+  <header class="ml15">
+    <span class="word" style="font-size:50px;"> 您的訂單</span>
+  </header>
+  <table class="container">
+    <tr class="item_header">
+      <td class="name">商品</td>
+      <td class="price">單價</td>
+      <td class="count">數量</td>
+      <td class="amount">總計</td>
+      <td class="operate">操作</td>
+    </tr>
+    <tr class="item_body">
+      <td class="name">
+        <img src="../assets/photo/notebook/note1.jpg" alt="">
+        <span id="name" style="vertical-align: middle;">個性筆記本</span>
+      </td>
+      <td class="price" id='price'>NT$99</td>
+      <td class="count">
+        <button onclick="Less()">-</button>
+        <span class="itemcount" id="itemcount" onchange="ProductNumberChange()">1</span>
+        <button onclick="Add()">+</button>
+      </td>
+      <td class="amount" id="amount">NT$99</td>
+      <td class="operate">
+        <button id="delete_btn" class="del" onclick="Delete()">X</button>
+      </td>
+    </tr>
+    <tr class="item_bottom">
+      <td colspan="3" style="text-align: right; font-size: 20px; padding: 10px; border-bottom:none ;">小計</td>
+      <td class="amount" id="total" style="border-bottom: none;">NT$99</td>
+      <td style="border: none;"></td>
+    </tr>
+    <tr class="item_bottom">
+      <td colspan="3" style="text-align: right; font-size: 20px; padding: 10px; border-bottom: none;">運費</td>
+      <td class="amount" id="shipping_cost">NT$80</td><br>
+    </tr>
+    <tr class="item_bottom" style="border-bottom: none;">
+      <td colspan="3"
+        style="text-align: right; font-size: 20px; font-weight: bold; padding: 10px; border-bottom: none;">總計</td>
+      <td class="amount" id="total_price" style="font-weight: bolder;border-bottom: none;">NT$179</td>
+    </tr>
+  </table>
+  <p style="padding-top: 30px;"></p>
+  <div class="container">
+    <div class="dv1">
+      <form method="POST" action="action_page.php">
+        <h3 style="font-weight: bolder;">運送方式</h3>
+        <input type="radio" name="shipping_method" value="local" checked />本地郵寄<br>
+        <input type="radio" name="shipping_method" value="7-11"> 7-11 超商取貨 <br>
+        <p>
+          <h3>收件人資訊</h3>
+        </p>
+        姓 名 ： <input type="text" name="t1" size="20" style="font-size:16px"><br>
+        <p></p>
+        住 址 ： <input type="text" name="t2" size="80" style="font-size:16px"><br>
+        <p></p>
+        電 話 ： <input type="tel" name="tel" size="30" style="font-size:16px"><br>
+        <p></p>
+        E-Mail ： <input type="email" size="30" title="username@mailserver" style="font-size:16px"><br>
+        <p></p>
+        <h3>付款方式</h3>
+        <input type="radio" name="pay_method" value="貨到付款"> 貨到付款<br>
+        <input type="radio" name="pay_method" value="刷卡"> 刷卡<br>
+        <h4>卡片：</h4>
+        <input type="radio" name="card" value="VISA" style="height: 30px;"><img src="../assets/photo/v"><span
+          style="padding-left: 20px;">
+          <input type="radio" name="card" value="Master" style="height: 30px;"><img
+            src="../assets/photo/mastercard.png"></span><span style="padding-left: 20px;">
+          <input type="radio" name="card" value="JBC" style="height: 30px;"> <img
+            src="../assets/photo/jcb.jpg"></span><span style="padding-left: 20px;">
+          <input type="radio" name="card" value="AE" style="height: 30px;"><img
+            src="../assets/photo/ac1.jpg"></span><span style="padding-left: 20px;">
+          <input type="radio" name="card" value="applepay" style="height: 30px;"><img src="../assets/photo/applepay.jpg"
+            style="padding-left: 20px;">
+          <input type="radio" name="card" value="Pay" style="height: 30px;"><img
+            src="../assets/photo/pay.jpg"></span><span style="padding-left: 20px;">
+          <input type="radio" name="card" value="聯銀卡" style="height: 30px;"><img
+            src="../assets/photo/unionpay.png"></span>
+
+        <h4> 刷卡資訊</h4>
+        發卡銀行 ： <select size="1" name="銀行名稱" style="font-size:16px; width: 200px; height: 30px;">
+          <option>004 台灣銀行</option>
+          <option>005 土地銀行</option>
+          <option>007 彰化銀行</option>
+          <option>012 富邦銀行</option>
+          <option>013 國泰銀行</option>
+          <option>021 花旗銀行</option>
+          <option>081 匯豊銀行</option>
+          <option>700 中華郵政</option>
+          <option>808 玉山銀行</option>
+        </select><br>
+        <p></p>
+        信用卡號 ： <input type="number" name="卡號" style="font-size: 16px; width: 300px; height: 20px;"><span
+          style="padding-left: 100px;">驗證碼：<input type="number" name="quantity" min="3" max="4"
+            style="font-size: 15px;"></span><br>
+        <h4>備註</h4>
+        <textarea name="memo" cols="70" rows="10" wrap="hard" style="font-size: 20px;"></textarea><br><br>
+      </form>
+    </div>
+  </div>
+  <p></p>
+  <div class="dv2">
+    <button class="bt1"><a href="shoppingcar.html" style=" text-decoration: none; color:black;">回上頁</a></button>
+    <a href="index.html"><button class="bt1" onclick="openwin()">送出</button></a>
+  </div>
+
+
+</body>
+<script src="../assets/js/textpay.js"></script>
+
+</html>
